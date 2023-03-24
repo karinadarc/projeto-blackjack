@@ -8,10 +8,9 @@
 //console.log(carta.valor) // imprime o valor da carta (um número). Exemplo: 10 (dado que "K" vale 10)
 
 
-console.log('Boas vindas ao jogo BlackJack')
+console.log('Bem-vindo(a) ao jogo de blackjack')
 
 if (confirm('Quer iniciar uma nova rodada?')) {
-   console.log('O jogo já vai começar!')
    jogar()
 } else {
    console.log('O jogo acabou!')
@@ -29,26 +28,17 @@ function jogar() {
    console.log(`Usuário - cartas:  ${carta1.texto} ${carta2.texto} - ${valorUsuario}`)
    console.log(`Computador - cartas: ${carta3.texto} ${carta4.texto} - ${valorComputador}`)
 
-
-   if (valorUsuario === valorComputador) {
-      console.log('Empate')
-   } else if (valorUsuario > valorComputador || valorComputador > 21) {
-      console.log('Usúario venceu!')
-   } else if (valorComputador > valorUsuario || valorUsuario > 21) {
-      console.log('Computador venceu!')
-   } 
+   verificaVencedor(valorUsuario, valorComputador)
 
 }
 
+function verificaVencedor(valorUsuario, valorComputador) {
+   if ((valorUsuario > valorComputador || valorComputador > 21) && valorUsuario <= 21) {
+      console.log('Usúario venceu!')
+   } else if ((valorComputador > valorUsuario || valorUsuario > 21) && valorComputador <= 21) {
+      console.log('Computador venceu!')
+   } else {
+      console.log('Empate')
 
-
-
-
-
-
-
-
-
-
-
-
+   }
+}
